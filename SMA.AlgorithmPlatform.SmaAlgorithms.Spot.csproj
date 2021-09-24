@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{34A533CD-9723-4569-B3B5-5DB1C82177C7}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMA.AlgorithmPlatform.SmaAlgorithms</RootNamespace>
+    <AssemblyName>SMA.AlgorithmPlatform.SmaAlgorithms.Spot</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|anyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>anyCPU</PlatformTarget>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <CodeAnalysisRuleSet>..\..\common\CodeAnalysis\Viriato.8.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE;CODE_ANALYSIS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>anyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <CodeAnalysisRuleSet>..\..\common\CodeAnalysis\Viriato.8.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommandLine">
+      <HintPath>..\libs\Release\CommandLineParser\lib\net45\CommandLine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\libs\Release\log4net\log4net.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NodaTime">
+      <HintPath>..\libs\Release\NodaTime\NodaTime-1.3.0-used\NodaTime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SD.Tools.Algorithmia">
+      <HintPath>..\libs\Release\SD.Tools.Algorithmia\SD.Tools.Algorithmia.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SD.Tools.BCLExtensions">
+      <HintPath>..\libs\Release\SD.Tools.Algorithmia\SD.Tools.BCLExtensions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SMA.AlgorithmPlatform.AlgorithmInterface">
+      <HintPath>..\libs\Release\SMA.AlgorithmPlatform.AlgorithmInterface\SMA.AlgorithmPlatform.AlgorithmInterface.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SMA.AlgorithmPlatform.CSharpClient">
+      <HintPath>..\libs\Release\SMA.AlgorithmPlatform.CSharpClient\SMA.AlgorithmPlatform.CSharpClient.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SMA.Algorithms.Utils">
+      <HintPath>..\libs\Release\SMA.Algorithms.Utils\SMA.Algorithms.Utils.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SMA.Apps.Utils">
+      <HintPath>..\libs\Release\SMA.Apps.Utils\SMA.Apps.Utils.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Spot\MilpGeneration\Commands\AddAdditionalRunningTimeBoundCommand.cs" />
+    <Compile Include="Spot\MilpGeneration\Commands\AddRunningTimeConstraintsCommand.cs" />
+    <Compile Include="Spot\MilpGeneration\Commands\AddTrainRunConstraintsCommand.cs" />
+    <Compile Include="Spot\Model\Solution\SpotTrainFactory.cs" />
+    <Compile Include="Spot\Extensions\SolutionExtensions.cs" />
+    <Compile Include="Spot\Services\TravelTimesCalculationServices.cs" />
+    <Compile Include="Spot\Statistics\Util\TrainCell.cs" />
+    <Compile Include="Spot\Statistics\Util\TravelRouteLookup.cs" />
+    <Compile Include="Spot\UserParameters\ISpotUserParameters.cs" />
+    <Compile Include="Spot\UserParameters\SpotUserParameters.cs" />
+    <Compile Include="Spot\UserParameters\SpotUserParametersFactory.cs" />
+    <Compile Include="Spot\Extensions\SpotLineAlgorithmExtensions.cs" />
+    <Compile Include="Spot\Extensions\NavigableTrainPathNodeExtensions.cs" />
+    <Compile Include="Spot\MilpGeneration\Commands\AddTravelRouteDurationSelectAtLeastOneForMinimumConstraintCommand.cs" />
+    <Compile Include="Spot\MilpGeneration\Commands\AddTransferDurationsBetweenRoutePartsConstraintCommand.cs" />
+    <Compile Include="Spot\MilpGeneration\Commands\AddRequiredMinimumTransferDurationBetweenTravelRoutePartsConstraintCommand.cs" />
+    <Compile Include="Spot\MilpGeneration\Commands\AddMinimumDurationOverAllTravelRoutesConstraintCommand.cs" />
+    <Compile Include="Spot\MilpGeneration\Commands\AddTravelRouteDurationLowerBoundForMinimumConstraintCommand.cs" />
+    <Compile Include="Spot\MilpGeneration\Commands\AddTravelRouteDurationUpperBoundForMinimumConstraintCommand.cs" />
+    <Compile Include="Spot\MilpGeneration\Commands\AddRelationsConstraintsCommand.cs" />
+    <Compile Include="Spot\MilpGeneration\Commands\AddTravelDurationsOnRoutePartsConstraintCommand.cs" />
+    <Compile Include="Spot\MilpGeneration\Commands\AddTotalDurationTravelRouteConstraintCommand.cs" />
+    <Compile Include="Spot\MilpGeneration\ProblemAndSolutionBuilderFactory.cs" />
+    <Compile Include="Spot\MilpGeneration\SpotConstraintNameFactory.cs" />
+    <Compile Include="Spot\MilpGeneration\Commands\AddRunningTimeEqualityCommand.cs" />
+    <Compile Include="Spot\MilpGeneration\Commands\AddStopTimeConstraintCommand.cs" />
+    <Compile Include="Spot\Model\Solution\SpotSolution.cs" />
+    <Compile Include="Spot\Model\Solution\SpotSolutionBuilder.cs" />
+    <Compile Include="Spot\Model\Scenario\ISpotScenario.cs" />
+    <Compile Include="Spot\MilpGeneration\Commands\SpotConstraintCommandBase.cs" />
+    <Compile Include="Spot\MilpGeneration\SpotMilpGenerationContext.cs" />
+    <Compile Include="Spot\MilpGeneration\Commands\AddObjectiveCommand.cs" />
+    <Compile Include="Spot\MilpGeneration\SpotProblemBuilder.cs" />
+    <Compile Include="Spot\MilpGeneration\Commands\SpotProblemGenerationCommand.cs" />
+    <Compile Include="Spot\MilpGeneration\SpotVariableFactory.cs" />
+    <Compile Include="Spot\Model\Trains\ISpotLineConstraint.cs" />
+    <Compile Include="Spot\Model\Trains\ISpotPathNodeConstraint.cs" />
+    <Compile Include="Spot\Model\Trains\ISpotTrainPathNode.cs" />
+    <Compile Include="Spot\Model\PassengerOdRelations\IPassengerTravelRoutePart.cs" />
+    <Compile Include="Spot\Model\PassengerOdRelations\IPassengerTravelRoute.cs" />
+    <Compile Include="Spot\Model\PassengerOdRelations\IPassengerRelation.cs" />
+    <Compile Include="Spot\Extensions\DictionaryExtension.cs" />
+    <Compile Include="Spot\Model\PassengerOdRelations\ITransferTimeLookup.cs" />
+    <Compile Include="Spot\UserParameters\Parser\ParserUtil.cs" />
+    <Compile Include="Spot\UserParameters\Parser\PassengerRelationsParser.cs" />
+    <Compile Include="Spot\UserParameters\Parser\ParserHelper.cs" />
+    <Compile Include="Spot\Model\PassengerOdRelations\IPassengerRelationCharacteristics.cs" />
+    <Compile Include="Spot\Model\PassengerOdRelations\ITravelRouteCharacteristics.cs" />
+    <Compile Include="Spot\Model\Solution\PassengerRelationCharacteristicsFactory.cs" />
+    <Compile Include="Spot\Statistics\Calculators\SummaryStatsCalculator.cs" />
+    <Compile Include="Spot\Statistics\Services\StatsServices.cs" />
+    <Compile Include="Spot\Statistics\Services\SummaryStatsWriter.cs" />
+    <Compile Include="Spot\Services\TrainPersistenceService.cs" />
+    <Compile Include="Spot\Statistics\Calculators\RelationsStatsCalculator.cs" />
+    <Compile Include="Spot\Statistics\Definitions\RelationsDefinition.cs" />
+    <Compile Include="Spot\Statistics\Definitions\SummaryDefinition.cs" />
+    <Compile Include="Spot\Statistics\Services\RelationsStatsWriter.cs" />
+    <Compile Include="Spot\Statistics\Stats\IRelationsStats.cs" />
+    <Compile Include="Spot\Statistics\Stats\ISummaryStats.cs" />
+    <Compile Include="Spot\Statistics\Util\IntegerCell.cs" />
+    <Compile Include="Spot\Statistics\Util\NodeCell.cs" />
+    <Compile Include="Spot\Statistics\Util\TableColumnDefinition.cs" />
+    <Compile Include="Spot\Statistics\Util\TextCell.cs" />
+    <Compile Include="Spot\Statistics\Util\TableDefinition.cs" />
+    <Compile Include="Spot\Statistics\Util\TableRow.cs" />
+    <Compile Include="Spot\Statistics\Util\DurationCell.cs" />
+    <Compile Include="Spot\Model\Trains\SpotLineConstraint.cs" />
+    <Compile Include="Spot\Model\Trains\SpotLineConstraintFactory.cs" />
+    <Compile Include="Spot\Model\Trains\SpotPathNodeConstraint.cs" />
+    <Compile Include="Spot\Model\Scenario\SpotScenarioFactory.cs" />
+    <Compile Include="Spot\Model\Trains\SpotTrain.cs" />
+    <Compile Include="Spot\Model\Trains\SpotTrainPathNode.cs" />
+    <Compile Include="Spot\Model\Scenario\TimeConverter.cs" />
+    <Compile Include="Spot\Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Spot\SpotAlgorithm.cs" />
+    <Compile Include="Spot\Model\Scenario\SpotScenario.cs" />
+    <Compile Include="Spot\Extensions\TimeWindowExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\..\common\CodeAnalysis\SonarAnalyzer\Google.Protobuf.dll" />
+    <Analyzer Include="..\..\common\CodeAnalysis\SonarAnalyzer\SonarAnalyzer.CSharp.dll" />
+    <Analyzer Include="..\..\common\CodeAnalysis\SonarAnalyzer\SonarAnalyzer.dll" />
+    <Analyzer Include="..\..\common\CodeAnalysis\SonarAnalyzer\SonarAnalyzer.cfg.dll" />
+    <Analyzer Include="..\..\common\CodeAnalysis\StyleCop.Analyzers\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\..\common\CodeAnalysis\StyleCop.Analyzers\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <Import Project="..\..\common\CodeAnalysis\DisableAnalyzersHooks.targets" />
+  <ItemGroup>
+    <None Include="..\App.config">
+      <Link>App.config</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RailwayUtils\SMA.AlgorithmPlatform.SmaAlgorithms.RailwayUtils.csproj">
+      <Project>{E0882A43-B59F-4F2F-A483-D400453719D4}</Project>
+      <Name>SMA.AlgorithmPlatform.SmaAlgorithms.RailwayUtils</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
