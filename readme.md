@@ -78,10 +78,10 @@ For sake of simplicity, in this case we chose to neglect the waiting time at a p
 <figure>
   <a id="example_to_show_difference_in_passenger_routes"></a>
   <img src="documentation/images/example_to_show_difference_in_passenger_routes.svg" width="100%">
-  <caption><p style="text-align: center;">Figure 4: Simplified passenger routing (left), original <b>SPOT</b> implementation (right). (Viriato screenshot).</p></caption>
+  <caption><p style="text-align: center;">Figure 4: Simplified passenger routing (left), original <b>SPOT</b> implementation (right).</p></caption>
 </figure>
 
-A solution of our implementation is shown on the left of [Figure 4](#example_to_show_difference_in_passenger_routes), where because waiting at _A_ is disregarded, all passengers on the relation _A-B_ use the faster 2nd train. In contrast, on the right hand side we can observe the solution that would be achieved given the full implementation of the SPOT algorithm as defined in [1]. As the waiting time at _A_ is taken into account, some passengers use the slower train since in their case it leads to an overall shorter passenger trip time than waiting for the faster train.
+A solution of our implementation is shown on the left of [Figure 4](#example_to_show_difference_in_passenger_routes), where because waiting at _A_ is disregarded, all passengers on the relation _A-B_ use the faster 2nd train. In contrast, on the right hand side we can observe the solution that would be achieved given the full implementation of the SPOT algorithm as defined in [[1]](#ref_1). As the waiting time at _A_ is taken into account, some passengers use the slower train since in their case it leads to an overall shorter passenger trip time than waiting for the faster train.
 
 # Specific Features of the *Algorithm Platform* in Action
 
